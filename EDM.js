@@ -40,24 +40,33 @@ card.appendChild(btnContainer);
 // Buttons
 const btnNames = document.createElement("button");
 btnNames.textContent = "Show Names";
-btnNames.style.width = "100px";
-btnNames.style.height = "60px";
+btnNames.style.width = "140px";
+btnNames.style.height = "80px";
 btnNames.style.border = "solid";
+btnNames.style.fontSize = "20px";
+btnNames.style.color = " #764ba2";
+btnNames.style.fontWeight = "bold";
 btnNames.style.borderRadius = "18px";
 btnNames.style.borderColor = "black";
 
 const btnFilter = document.createElement("button");
-btnFilter.style.width = "100px";
-btnFilter.style.height = "60px";
+btnFilter.style.width = "140px";
+btnFilter.style.height = "80px";
+btnFilter.style.fontSize = "20px";
+btnFilter.style.fontWeight = "bold";
 btnFilter.style.border = "solid";
-btnFilter.style.borderRadius = "18px";
+btnFilter.style.color = " #764ba2";
+btnFilter.style.borderRadius = "20px";
 btnFilter.style.borderColor = "black";
 btnFilter.textContent = "Salary > 40,000";
 
 const btnTotal = document.createElement("button");
-btnTotal.style.width = "100px";
-btnTotal.style.height = "60px";
+btnTotal.style.width = "140px";
+btnTotal.style.height = "80px";
 btnTotal.style.border = "solid";
+btnTotal.style.fontSize = "20px";
+btnTotal.style.fontWeight = "bold";
+btnTotal.style.color = " #764ba2";
 btnTotal.style.borderRadius = "18px";
 btnTotal.style.borderColor = "black";
 btnTotal.textContent = "Total Salary Expense";
@@ -87,28 +96,59 @@ const employees = [
 
 // 1. Show names (map + arrow function)
 const showNames = () => {
-  results.innerHTML = "<h3>Employee Names</h3>";
-  results.innerHTML += employees.map(e => `<p>${e.name}</p>`).join("");
+  results.innerHTML = ""
+  const d1 = document.createElement("div");
+  d1.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
+  d1.style.marginTop = "20px";
+  d1.style.borderRadius = '20px';
+  d1.style.padding = '40px';
+  d1.style.width = '90%';
+  d1.style.maxWidth = '800px';
+  d1.style.textAlign = "center";
+  results.appendChild(d1);
+  d1.innerHTML = "<h3>Employee Names</h3>";
+  d1.innerHTML += employees.map(e => `<p>${e.name}</p>`).join("");
 };
 
 // 2. Filter salary > 40k (filter + destructuring + arrow function)
 const filterSalary = () => {
-  results.innerHTML = "<h3>High Earners</h3>";
+  results.innerHTML = ""
+  const d = document.createElement("div");
+  d.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
+  d.style.marginTop = "20px";
+  d.style.borderRadius = '20px';
+  d.style.padding = '40px';
+  d.style.width = '90%';
+  d.style.maxWidth = '800px';
+  d.style.textAlign = "center";
+  results.appendChild(d);
+
+  d.innerHTML = "<h3>High Earners</h3>";
   const highEarners = employees.filter(e => e.salary > 40000);
 
   if (highEarners.length === 0) {
-    results.innerHTML += "<p>No employees found.</p>";
+    d.innerHTML += "<p>No employees found.</p>";
   } else {
     highEarners.forEach(({ name, age, salary }) => {
-      results.innerHTML += `<p>${name} (Age: ${age}) - rs${salary}</p>`;
+      d.innerHTML += `<p>${name} (Age: ${age}) - rs${salary}</p>`;
     });
   }
 };
 
 // 3. Total salary (reduce + arrow function)
 const totalSalary = () => {
+  results.innerHTML = ""
+  const d2 = document.createElement("div");
+  d2.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
+  d2.style.marginTop = "20px";
+  d2.style.borderRadius = '20px';
+  d2.style.padding = '40px';
+  d2.style.width = '90%';
+  d2.style.maxWidth = '800px';
+  d2.style.textAlign = "center";
+  results.appendChild(d2);
   const total = employees.reduce((sum, e) => sum + e.salary, 0);
-  results.innerHTML = `<h3>Total Salary Expense</h3><p>rs${total}</p>`;
+  d2.innerHTML = `<h3>Total Salary Expense</h3><p>rs${total}</p>`;
 };
 
 // Button events
