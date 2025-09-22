@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>data</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+        
+    
+        .user-box {
+         background-color: rgb(210, 147, 147);
+         color: black;
+         margin:5px;
+         display:inline-block;
+         padding:10px;
+         flex-direction:row-reverse;
+         border-radius: 8px;
+
+    }
+    .user-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.4); 
+  background-color: #f2c8c8;
+}
+    </style>
+
+    </head>
+    <body>
+        <button type="button" onclick="user()" style="margin:20px 800px;padding:20px 25px;background-color: rgb(241, 214, 214);border-radius: 5px;font-size: 20px;"><b>load users</b></button>
+        <div id="info"></div>
+    
+
+
+
+    <script>
+    async function user() {
+    const usercontainer=document.getElementById("info")
+    usercontainer.textContent=""
+    try{ 
+        const response=await fetch("http://jsonplaceholder.typicode.com/users");
+        const data=await response.json();
+        data.forEach(element => {
+            const userdiv= document.createElement("div")
+            userdiv.style.border="solid"
+            userdiv.style.borderColor="black"
+            userdiv.innerHTML=`
+            <p>name:${element.name}</p>
+            <p>email:${element.email}</p>
+            <p>address:${element.address.street},${element.address.city}</p>
+             `
+            usercontainer.appendChild(userdiv)
+        });
+
+    }
+    catch{
+        console.log("error occured try later")
+    }
+}
+        </script>
+    </body>
+
+</html>

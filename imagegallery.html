@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Image gallery</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <body style="background-color: rgb(177, 215, 249);">
+        <b><h1 style="text-align: center;font-size: 60px;">image gallery</h1></b>
+        <i><p style="text-align: center; font-size: 40px;">Click on any image and it will change</p></i>
+
+
+         <div  style="flex-direction: row; min-width:1000px; margin-left: 600px;">
+        <img src="bb1-2.avif" alt="photo1" id="photo1" style="display: inline-block; width:350px; flex-direction: row; margin: 40px;">
+        <img src="Marketing Image.jpeg" alt="photo2" id="photo2"  style="display: inline-block; width:350px;flex-direction: row; margin: 40px;">
+        <img src="mVCMHBvF.jpeg" alt="photo3" id="photo3"  style="display: inline-block; width:350px; flex-direction: row;  margin: 40px;"/>
+         </div>
+        <script>
+            const mainimg=document.createElement("div")
+            mainimg.style.margin="10px 500px 10px 1000px"
+            document.body.appendChild(mainimg)
+            const photo=document.createElement("img");
+            mainimg.appendChild(photo)
+            const photo1=document.getElementById("photo1");
+           const photo2=document.getElementById("photo2");
+           const photo3=document.getElementById("photo3");
+           photo1.addEventListener("mouseover",()=>{
+            
+            photo.src=photo1.src
+
+
+           })
+            photo2.addEventListener("mouseover",()=>{
+            
+            photo.src=photo2.src
+
+
+           })
+
+            photo3.addEventListener("mouseover",()=>{
+            
+            photo.src=photo3.src
+
+
+           })
+
+        </script>
+    </body>
+</html>
