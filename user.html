@@ -9,7 +9,7 @@
 
         
     
-        .user-box {
+        #userdiv{
          background-color: rgb(210, 147, 147);
          color: black;
          margin:5px;
@@ -43,6 +43,7 @@
         const data=await response.json();
         data.forEach(element => {
             const userdiv= document.createElement("div")
+            userdiv.id="userdiv"
             userdiv.style.border="solid"
             userdiv.style.borderColor="black"
             userdiv.innerHTML=`
