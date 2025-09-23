@@ -28,22 +28,52 @@
   <body>
     <div class="container">
       <label for="hu">
-        <input id="hu" placeholder="enter your thought" style="display: inline-block;">
-        <button onclick="add()" style="display: inline-block;">Add it</button>
+        <input id="hu" placeholder="enter your thought">
+        <button id="ab" onclick="add()" style="display: inline-block;">Add it</button>
       </label>
       <ul id="ul"></ul>
     </div>
 
     <script>
-      function add() {
         const input = document.getElementById("hu");
+        input.style.width = "700px";
+        input.style.height = "80px";
+        input.style.border = "solid 4px black";
+        input.style.borderRadius = "16px";
+        input.style.display = "inline-block";
+        input.style.padding = "8px";
+        input.style.fontSize = "34px";
 
+        const btnadd = document.getElementById("ab");
+        btnadd.style.width = "100px";
+        btnadd.style.height = "80px";
+        btnadd.style.border = "solid 4px black";
+        btnadd.style.borderRadius = "16px";
+        btnadd.style.display = "inline-block";
+        btnadd.style.padding = "10px";
+        btnadd.style.fontSize = "26px";
+        
+      function add() {
+        
+  
         if (input.value.trim() !== "") {
           const li = document.createElement("li");
           li.textContent = input.value;
+          li.style.fontSize = "38px";
+          li.fontWeight = "bold";
 
           const btn = document.createElement("button");
           btn.textContent = "Remove";
+          btn.style.width = "140px";
+          btn.style.height = "60px";
+          btn.style.border = "solid 4px black";
+          btn.style.borderRadius = "16px";
+          btn.style.display = "inline-block";
+          btn.style.padding = "10px";
+          btn.style.fontSize = "26px";
+          btn.style.marginLeft = "80px";
+          btn.style.marginBottom = "20px";
+
           
           btn.onclick = function () {
             li.remove();
